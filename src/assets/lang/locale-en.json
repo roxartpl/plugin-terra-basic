@@ -6,5 +6,11 @@
 	"example": "Example",
 	"search": "Search",
 	"noResult": "No result",
-	"test": "This is only a test"
+	"test": "This is only a test",
+	"reactiveForm": "Reactive Form",
+	"lastName": "Last name",
+	"firstName": "First name",
+	"favoriteColor": "Favorite color",
+	"luckyNumber": "Lucky number",
+	"submit": "Submit"
 }

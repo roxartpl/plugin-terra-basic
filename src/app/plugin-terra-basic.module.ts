@@ -10,7 +10,10 @@ import {
     L10nLoader,
     TranslationModule
 } from 'angular-l10n';
-import { FormsModule } from '@angular/forms';
+import {
+    FormsModule,
+    ReactiveFormsModule
+} from '@angular/forms';
 import { l10nConfig } from './core/localization/l10n.config';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -24,6 +27,7 @@ import {
 } from '@plentymarkets/terra-components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslationProvider } from './core/localization/translation-provider';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
     imports:      [
@@ -31,13 +35,15 @@ import { TranslationProvider } from './core/localization/translation-provider';
         BrowserAnimationsModule,
         HttpModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpClientModule,
         TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
         RouterModule.forRoot([]),
         TerraComponentsModule
     ],
     declarations: [
-        PluginTerraBasicComponent
+        PluginTerraBasicComponent,
+        ReactiveFormComponent
     ],
     providers:    [
         {
