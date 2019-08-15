@@ -12,5 +12,8 @@
 	"firstName": "First name",
 	"favoriteColor": "Favorite color",
 	"luckyNumber": "Lucky number",
-	"submit": "Submit"
+	"submit": "Submit",
+	"error": {
+		"forbiddenColor": "Wrong color for fact #{{factIndex}}. These colors are forbidden: {{forbiddenColor}}"
+	}
 }

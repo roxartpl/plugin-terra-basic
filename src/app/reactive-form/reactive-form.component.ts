@@ -2,8 +2,14 @@ import {
     Component,
     OnInit
 } from '@angular/core';
+import {
+    FormArray,
+    FormBuilder,
+    FormGroup
+} from '@angular/forms';
+import { favoriteColorValidator } from '../core/validator/favorite-color-validator';
 
-export interface SomeFactsInterface
+export interface FactInterface
 {
     favoriteColor:string;
     luckyNumber:number;
@@ -13,7 +19,7 @@ export interface SomeDudeInterface
 {
     firstName:string;
     lastName:string;
-    someFacts:SomeFactsInterface
+    someFacts:Array<FactInterface>
 }
 
 @Component({
@@ -24,27 +30,61 @@ export interface SomeDudeInterface
 export class ReactiveFormComponent implements OnInit
 {
     public someDude:SomeDudeInterface = {
-        firstName: "Some",
-        lastName: "Dude",
-        someFacts: {
-            favoriteColor: "Blau",
+        firstName: 'Some',
+        lastName: 'Dude',
+        someFacts: [{
+            favoriteColor: 'Blau',
             luckyNumber: 7
-        }
+        }]
     };
 
-    constructor()
+    public form:FormGroup;
+
+    constructor(private fb:FormBuilder)
     {
     }
 
     ngOnInit()
     {
+        this.form = this.fb.group({
+            firstName: [this.someDude.firstName],
+            lastName: [''],
+            someFacts: this.createSomeFacts(this.someDude.someFacts)
+        });
     }
 
     public add():void
     {
+        (this.form.controls.someFacts as FormArray).push(this.createFact());
     }
 
-    public remove(index:number):void
+    public remove(index:number, fact:FactInterface):void
     {
+        (this.form.controls.someFacts as FormArray).removeAt(index);
+        console.log('These facts: ' + fact.toString() + ' are deleted.')
+    }
+
+    public submit():void
+    {
+        console.log(this.form.valid);
+        console.log(this.form.value);
+    }
+
+    private createSomeFacts(someFacts:Array<FactInterface>):FormArray
+    {
+        return this.fb.array(someFacts.map((fact:FactInterface) =>
+        {
+            const factGroup:FormGroup = this.createFact();
+            factGroup.setValue({...fact});
+            return factGroup;
+        }));
+    }
+
+    private createFact():FormGroup
+    {
+        return this.fb.group({
+            favoriteColor: ['', [favoriteColorValidator('pink')]],
+            luckyNumber: ['', ]
+        })
     }
 }
