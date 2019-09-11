@@ -27,6 +27,10 @@ import {
 } from '@plentymarkets/terra-components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslationProvider } from './core/localization/translation-provider';
+import { ContactService } from './services/contact.service';
+import { BasicTableService } from './services/basic-table.service';
+import { PlaceHolderService } from './core/placeholder/placeholder.service';
+import { MatSelectModule } from '@angular/material';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
@@ -39,7 +43,9 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
         HttpClientModule,
         TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
         RouterModule.forRoot([]),
-        TerraComponentsModule
+        TerraComponentsModule,
+        routing,
+        MatSelectModule
     ],
     declarations: [
         PluginTerraBasicComponent,
