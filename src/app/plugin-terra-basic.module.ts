@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {
     appRoutingProviders,
+    routing,
 } from './plugin-terra-basic.routing';
 import {
     httpInterceptorProviders,
@@ -27,6 +28,7 @@ import {
 } from '@plentymarkets/terra-components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslationProvider } from './core/localization/translation-provider';
+import { MatSelectModule } from '@angular/material';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
@@ -39,7 +41,9 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
         HttpClientModule,
         TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
         RouterModule.forRoot([]),
-        TerraComponentsModule
+        TerraComponentsModule,
+        routing,
+        MatSelectModule
     ],
     declarations: [
         PluginTerraBasicComponent,
