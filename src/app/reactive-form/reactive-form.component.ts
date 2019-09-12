@@ -2,6 +2,7 @@ import {
     Component,
     OnInit
 } from '@angular/core';
+import { Language } from 'angular-l10n';
 
 export interface SomeFactsInterface
 {
@@ -23,6 +24,9 @@ export interface SomeDudeInterface
 })
 export class ReactiveFormComponent implements OnInit
 {
+    @Language()
+    public lang:string;
+
     public someDude:SomeDudeInterface = {
         firstName: "Some",
         lastName: "Dude",
