@@ -8,6 +8,7 @@ import {
     FormGroup
 } from '@angular/forms';
 import { favoriteColorValidator } from '../core/validator/favorite-color-validator';
+import { Language } from 'angular-l10n';
 
 export interface FactInterface
 {
@@ -29,6 +30,9 @@ export interface SomeDudeInterface
 })
 export class ReactiveFormComponent implements OnInit
 {
+    @Language()
+    public lang:string;
+
     public someDude:SomeDudeInterface = {
         firstName: 'Some',
         lastName: 'Dude',
