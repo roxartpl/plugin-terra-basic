@@ -51,4 +51,9 @@ export class ReactiveFormComponent implements OnInit
     public remove(index:number):void
     {
     }
+
+    public submit():void
+    {
+        
+    }
 }
