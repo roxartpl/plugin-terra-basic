@@ -7,7 +7,7 @@
             <terra-portlet [inputPortletHeader]="'reactiveForm' | translate:lang">
                 <form>
                     <terra-button [inputCaption]="'submit' | translate:lang"
-                                  (outputClicked)="submit(terraristForm)"></terra-button>
+                                  (outputClicked)="submit()"></terra-button>
                     <terra-text-input [inputName]="'lastName' | translate:lang"
                                       [(ngModel)]="someDude.lastName"
                                       name="lastName">
