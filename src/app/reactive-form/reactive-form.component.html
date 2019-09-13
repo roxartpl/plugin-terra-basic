@@ -5,16 +5,20 @@
         </div>
         <div class="col-sm-4">
             <terra-portlet [inputPortletHeader]="'reactiveForm' | translate:lang">
-                <form>
+                <form *ngIf="form" [formGroup]="form" (submit)="submit()">
+                    
+                    
                     <terra-button [inputCaption]="'submit' | translate:lang"
-                                  (outputClicked)="submit()"></terra-button>
+                                  [inputType]="submit"></terra-button>
+                    
+                    
                     <terra-text-input [inputName]="'lastName' | translate:lang"
-                                      [(ngModel)]="someDude.lastName"
-                                      name="lastName">
+                                      formControlName="lastName">
                     </terra-text-input>
+                    
+                    
                     <terra-text-input [inputName]="'firstName' | translate:lang"
-                                      [(ngModel)]="someDude.firstName"
-                                      name="firstName">
+                                      formControlName="firstName">
                     </terra-text-input>
                     
                     <div class="container-fluid">
