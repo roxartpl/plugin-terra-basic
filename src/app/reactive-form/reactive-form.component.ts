@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import { Language } from 'angular-l10n';
 import {
+    FormArray,
     FormBuilder,
     FormGroup
 } from '@angular/forms';
@@ -33,10 +34,10 @@ export class ReactiveFormComponent implements OnInit
 
     public someDude:SomeDudeInterface = {
         firstName: 'Some',
-        lastName: 'Dude',
+        lastName:  'Dude',
         someFacts: {
             favoriteColor: 'Blau',
-            luckyNumber: 7
+            luckyNumber:   7
         }
     };
 
@@ -50,20 +51,30 @@ export class ReactiveFormComponent implements OnInit
     {
         this.form = this.formBuilder.group({
             firstName: [this.someDude.firstName],
-            lastName: [this.someDude.lastName]
+            lastName:  [this.someDude.lastName],
+            someFacts: this.formBuilder.array([
+                    this.formBuilder.group({
+                        favoriteColor: [this.someDude.someFacts.favoriteColor],
+                        luckyNumber:   [this.someDude.someFacts.luckyNumber]
+                    })
+                ]
+            )
         });
-
-
-        this.form.setValue({firstName: 'Foo', lastName: 'Bar'});
-        this.form.patchValue({lastName: 'Foobar'});
     }
 
     public add():void
     {
+        (this.form.get('someFacts') as FormArray).push(
+            this.formBuilder.group({
+                favoriteColor: [''],
+                luckyNumber:   ['']
+            })
+        );
     }
 
     public remove(index:number):void
     {
+        (this.form.get('someFacts') as FormArray).removeAt(index);
     }
 
     public submit():void

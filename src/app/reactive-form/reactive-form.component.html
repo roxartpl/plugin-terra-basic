@@ -21,30 +21,30 @@
                                       formControlName="firstName">
                     </terra-text-input>
                     
-                    <div class="container-fluid">
-                        <div class="row">
-                            <!--<terra-text-input class="col-sm-5"
+                    <div class="container-fluid" formArrayName="someFacts">
+                        <div class="row"
+                             *ngFor="let fact of form.get('someFacts').controls; last as isLast; index as index"
+                             [formGroupName]="index">
+                            <terra-text-input class="col-sm-5"
                                               [inputName]="'favoriteColor' | translate:lang"
-                                              [(ngModel)]="someDude.someFacts.favoriteColor"
-                                              name="favoriteColor">
-                            </terra-text-input>-->
+                                              formControlName="favoriteColor">
+                            </terra-text-input>
     
-                            <!--<terra-number-input class="col-sm-5"
+                            <terra-number-input class="col-sm-5"
                                                 [inputName]="'luckyNumber' | translate:lang"
-                                                [(ngModel)]="someDude.someFacts.luckyNumber"
-                                                name="luckyNumber">
-                            </terra-number-input>-->
+                                                formControlName="luckyNumber">
+                            </terra-number-input>
     
-                            <!--<terra-button class="col-sm-1"
+                            <terra-button class="col-sm-1"
                                           inputIcon="icon-delete"
                                           (outputClicked)="remove(index)">
-                            </terra-button>-->
+                            </terra-button>
                             
-                            <!--<terra-button class="col-sm-1"
+                            <terra-button class="col-sm-1"
                                           *ngIf="isLast"
                                           inputIcon="icon-add"
                                           (outputClicked)="add()">
-                            </terra-button>-->
+                            </terra-button>
                         </div>
                     </div>
                 </form>
