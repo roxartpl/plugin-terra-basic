@@ -1,6 +1,10 @@
 <div class="mat-table-container">
-    <tc-table-settings [table]="table" [(selectedColumns)]="_columnList"></tc-table-settings>
-    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]" [disabled]="_dataSource.data.length === 0"></mat-paginator>
+    
+    <mat-toolbar>
+        <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]" [disabled]="_dataSource.data.length === 0"></mat-paginator>
+        <tc-table-settings [table]="table" [(selectedColumns)]="_columnList"></tc-table-settings>
+    </mat-toolbar>
+    
     <table #table="matTable" mat-table class="w-100" [dataSource]="_dataSource" matSort matSortActive="id" matSortDirection="desc" matSortDisableClear>
         <ng-container matColumnDef="select">
             <th mat-header-cell *matHeaderCellDef>

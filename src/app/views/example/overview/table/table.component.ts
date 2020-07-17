@@ -39,7 +39,6 @@ export class TableComponent implements OnInit
     public sort:MatSort;
 
     public _columnList:Array<string> = ['select',
-                                        'id',
                                         'firstName',
                                         'lastName'];
     /**
