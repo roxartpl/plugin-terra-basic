@@ -18,7 +18,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { ContactInterface } from '../../../../interfaces/contact.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { AlternateTextInterface } from '@plentymarkets/terra-components/components/table/table-settings/interface/alternate-text.interface';
+import { ColumnInterface } from '@plentymarkets/terra-components/components/table/table-settings/interface/column.interface';
 
 @Component({
     selector:    'ptb-table',
@@ -38,21 +38,22 @@ export class TableComponent implements OnInit
     @ViewChild(MatSort, {static: true})
     public sort:MatSort;
 
-    public _columnList:Array<AlternateTextInterface> = [
+    public _columns:Array<ColumnInterface> = [
         {
             key:      'select',
-            altText:  'Auswahl',
-            selected: true
+            label:  'Auswahl'
+        },
+        {
+            key: 'id',
+            label: 'ID'
         },
         {
             key:      'firstName',
-            altText:  'Vorname',
-            selected: true
+            label:  'Vorname'
         },
         {
             key:      'lastName',
-            altText:  'Nachname',
-            selected: true
+            label:  'Nachname'
         }];
 
     public columnList:Array<string> = ['select', 'firstName', 'lastName'];
