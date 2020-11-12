@@ -6,7 +6,7 @@ import { createHttpParams, TerraPagerInterface } from '@plentymarkets/terra-comp
 
 @Injectable()
 export class ContactService {
-    private readonly url: string = 'http://master.login.plentymarkets.com/rest/accounts/contacts';
+    private readonly url: string = 'http://sogo24.de/rest/accounts/contacts';
 
     constructor(private http: HttpClient) {}
 

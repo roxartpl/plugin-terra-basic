@@ -2,6 +2,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { StartComponent } from './views/start/start.component';
+import { CurrenciesTableComponent } from './views/start/table/currencies-table.component';
 import { L10nLoader, TranslationModule, TranslationService } from 'angular-l10n';
 import { FormsModule } from '@angular/forms';
 import { l10nConfig } from './core/localization/l10n.config';
@@ -57,6 +58,7 @@ export function initL10n(l10nLoader: L10nLoader): Function {
         StartComponent,
         ExampleViewComponent,
         TableComponent,
+        CurrenciesTableComponent,
         FilterComponent,
         OverviewViewComponent
     ],
